@@ -1,6 +1,6 @@
 # TaskList-UI (Angular application for managing Users Task List)
 
-This is a simple angular 9 with Boostrap application which offer the following funcionalities>
+This is a simple angular 9 with Boostrap application which offer the following funcionalities
 
 1. Autentication form (validate user/password credentials to a H2 BD).
 2. Dashboard that list all the user task paginated and order by estimation date.
