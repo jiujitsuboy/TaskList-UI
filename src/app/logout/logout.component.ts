@@ -14,10 +14,7 @@ export class LogoutComponent implements OnInit {
   }
   logout(): boolean {
     this.authService.logout();
-    console.log(this.authService.getUserName());
+    console.log(this.authService.getUser());
     return false;
-  }
-  getLogUser():string{
-    return this.authService.getUserName();
   }
 }
