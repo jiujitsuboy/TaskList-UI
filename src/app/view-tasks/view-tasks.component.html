@@ -1,0 +1,69 @@
+<div class='card mx-auto' style="width: 1000px;">
+    <div class='card-header'>
+        Task List
+        <app-logout></app-logout>
+    </div>
+    <div class='card-body'>
+        <div class='table-responsive'>            
+            <table class='table' *ngIf='tasks && tasks.length'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Estimate Date</th>
+                        <th>Status</th>
+                        <th>Mark as Done</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let task of tasks'>
+                        <td>{{ task.id }}</td>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.estimateDate | date:'mediumDate'}}</td>
+                        <td>
+                            <img [src]="task.status==='DONE'?'assets/images/done.png':'assets/images/pending.png'"
+                                [title]='task.status' [style.width.px]='40'>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" mwlConfirmationPopover [popoverTitle]="'Confirm'"
+                                [popoverMessage]="'Confirm Task Completition'" placement="left"
+                                (confirm)="changeStatus(task.id)" [disabled]="task.status==='DONE'">Mark as
+                                Done</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <div>
+                                <span>
+                                    <button class="btn" (click)="getPage(pageNro-1)" [disabled]="pageNro<=0">
+                                        <img [src]="'assets/images/prev.png'" [title]="'previous task'"
+                                            [style.width.px]='20'>
+                                    </button>
+                                </span>
+                                <span>&nbsp;Page</span>
+                                <span>&nbsp;{{pageNro+1}}&nbsp;</span>
+                                <span>
+                                    <button class="btn" (click)="getPage(pageNro+1)"
+                                        [disabled]="pageNro>=totalPageNro-1">
+                                        <img [src]="'assets/images/next.png'" [title]="'previous task'"
+                                            [style.width.px]='20'></button></span>
+                                <span>&nbsp;of&nbsp;</span>
+                                <span>{{totalPageNro}}&nbsp;</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+    <div class='card-footer'>
+        <div class="text-right">
+            <a class="btn btn-secondary" [routerLink]="['/createtask']">New Task</a>                
+        </div>
+      </div>
+</div>
