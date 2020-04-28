@@ -53,11 +53,23 @@ export class CreateTaskComponent implements OnInit {
     console.log('Saved: ' + JSON.stringify(this.taskForm.value));
   }
   validDate(){
-    let todayDate = new Date();
+    let isValid: boolean = false;
+    let todayDateTemp = new Date();
+    let todayDate = new Date(todayDateTemp.getFullYear(),todayDateTemp.getMonth(),todayDateTemp.getDate());
     let selectedDate = new Date(this.taskForm.controls['estimateDate'].value);
+    selectedDate.setDate(selectedDate.getDate()+1);
+    console.log(`${selectedDate}`);
     console.log(`${selectedDate} >= ${todayDate}`);
+
+    if(selectedDate>=todayDate){
+      isValid = true;
+    }
+    else{
+      this.taskForm.controls['estimateDate'].setErrors({'incorrect':true});
+    }
     console.log(selectedDate>=todayDate);
-    return selectedDate>=todayDate;
+    
+    return isValid;
   }
   onBack(): void {    
     this.router.navigate(['viewtasks'])
