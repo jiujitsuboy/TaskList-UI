@@ -39,7 +39,7 @@ export class CreateTaskComponent implements OnInit {
       estimateDate: this.taskForm.controls['estimateDate'].value,
       status: "PENDING",
       "user":{
-              "id":this.authService.getUser()              
+              "id":this.authService.getUserId()              
       }
     }
     this.httpTaskService.addTask(newTask).subscribe((resp: any) => {

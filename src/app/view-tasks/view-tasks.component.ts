@@ -50,7 +50,7 @@ export class ViewTasksComponent implements OnInit {
   }
   getTask(){
     this.httpTaskService.pageNro = this.pageNro;
-    this.httpTaskService.getTasks(this.authService.getUser()).subscribe((pageInfo: any) => {
+    this.httpTaskService.getTasks(this.authService.getUserId()).subscribe((pageInfo: any) => {
       this.pageNro = pageInfo.nroPage;
       this.totalPageNro = pageInfo.totalPages;
       this.tasks = pageInfo.taskPerPage;
