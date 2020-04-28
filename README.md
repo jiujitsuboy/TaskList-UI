@@ -7,7 +7,7 @@ This is a simple angular 9 with Boostrap application which offer the following f
 3. Form that allows task creating
 
 
-Features:
+# Features:
 1. Angular Reactive Forms
 2. Session managed by Cookies (ngx-cookie-service). This cookie is used to validate a login user, so is necessary to browse further the login page.
 3. JWT injection on every external http request by using http interceptor. JWT is assign to Authorization http header on every request.
