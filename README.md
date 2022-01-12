@@ -19,4 +19,4 @@ This is a simple angular 9 with Boostrap application which offer the following f
 
 *npm start lunch the web server on port 8090*
 
-**For proper function, it requieres [TaskList-Bank](https://github.com/jiujitsuboy/TaskList-Back) app running** 
+**For proper function, it requieres [TaskList-Back](https://github.com/jiujitsuboy/TaskList-Back) app running** 
